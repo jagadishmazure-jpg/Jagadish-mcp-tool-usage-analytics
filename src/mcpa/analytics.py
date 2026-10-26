@@ -1,6 +1,8 @@
 """Usage, cost, error and latency analytics over MCP tool-call events."""
 from collections import defaultdict
+
 from .events import TOOLS
+
 
 def pct(xs, p):
     xs = sorted(xs)

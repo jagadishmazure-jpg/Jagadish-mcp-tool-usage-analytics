@@ -3,7 +3,7 @@
 Each event mirrors what a gateway sees for a JSON-RPC `tools/call`: who, which agent, which server/tool,
 status, latency, bytes returned. Anomalies are injected with ground-truth labels for scoring."""
 import random
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 TOOLS = {  # server.tool -> (kind, illustrative USD per call, base latency ms)
     "crm.search_accounts": ("read", 0.0004, 120), "crm.update_account": ("write", 0.0010, 300),
