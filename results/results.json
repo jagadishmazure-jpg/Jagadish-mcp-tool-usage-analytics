@@ -1,0 +1,101 @@
+{
+  "label": "SYNTHETIC event log; detection scored against injected labels",
+  "sample": "6160 events, 30 users, 7 days, seed 11",
+  "metrics": {
+    "Events": 6160,
+    "Users": 30,
+    "Distinct tools": 9,
+    "Top tool by calls": "crm.search_accounts (1605)",
+    "Illustrative tool cost, 7 days (USD)": 2.3548,
+    "erp.get_order error rate, day 4 vs day 3": "54.3% vs 3.1%",
+    "Alerts raised": 5,
+    "Alerts by rule": "offhours_write=1, repeated_denials=1, unregistered_tool=1, volume_spike=2",
+    "Alert precision vs injected truth": "5/5 (100.0%)",
+    "Anomalous user-hours detected (recall)": "4/14 (28.6%)",
+    "Injected incident types detected": "4/5 (missed: low_and_slow)",
+    "SIEM records exported (OCSF-style)": 5
+  },
+  "by_tool": {
+    "crm.search_accounts": {
+      "calls": 1605,
+      "error_rate": 0.0287,
+      "denied": 0,
+      "p50_ms": 126.0,
+      "p95_ms": 207.0,
+      "usd": 0.6236,
+      "mb_out": 23.54
+    },
+    "kb.search": {
+      "calls": 1422,
+      "error_rate": 0.0295,
+      "denied": 0,
+      "p50_ms": 96.0,
+      "p95_ms": 140.0,
+      "usd": 0.276,
+      "mb_out": 4.46
+    },
+    "erp.get_order": {
+      "calls": 1392,
+      "error_rate": 0.1063,
+      "denied": 0,
+      "p50_ms": 215.0,
+      "p95_ms": 310.5,
+      "usd": 0.622,
+      "mb_out": 4.21
+    },
+    "files.read": {
+      "calls": 1349,
+      "error_rate": 0.0289,
+      "denied": 0,
+      "p50_ms": 179.0,
+      "p95_ms": 262.0,
+      "usd": 0.393,
+      "mb_out": 4.24
+    },
+    "erp.create_refund": {
+      "calls": 134,
+      "error_rate": 0.0299,
+      "denied": 25,
+      "p50_ms": 489.5,
+      "p95_ms": 785.1,
+      "usd": 0.21,
+      "mb_out": 0.33
+    },
+    "email.send": {
+      "calls": 115,
+      "error_rate": 0.0087,
+      "denied": 0,
+      "p50_ms": 321.0,
+      "p95_ms": 442.6,
+      "usd": 0.0912,
+      "mb_out": 0.34
+    },
+    "crm.update_account": {
+      "calls": 105,
+      "error_rate": 0.0286,
+      "denied": 0,
+      "p50_ms": 387.0,
+      "p95_ms": 522.0,
+      "usd": 0.102,
+      "mb_out": 0.33
+    },
+    "files.delete": {
+      "calls": 34,
+      "error_rate": 0.0294,
+      "denied": 0,
+      "p50_ms": 210.0,
+      "p95_ms": 345.5,
+      "usd": 0.033,
+      "mb_out": 0.09
+    },
+    "shell.exec": {
+      "calls": 4,
+      "error_rate": 0.0,
+      "denied": 0,
+      "p50_ms": 90.0,
+      "p95_ms": 90.0,
+      "usd": 0.004,
+      "mb_out": 0.0
+    }
+  }
+}
