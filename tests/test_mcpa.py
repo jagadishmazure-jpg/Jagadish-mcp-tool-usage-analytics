@@ -1,9 +1,13 @@
 import json
+from itertools import pairwise
+
 import pytest
+
 from mcpa.analytics import by, daily_error_rate, pct
 from mcpa.events import TOOLS, generate
 from mcpa.risk import detect, robust_z, tool_risk_score
 from mcpa.siem import export_jsonl, to_ocsf
+
 
 @pytest.fixture(scope="module")
 def ev():
@@ -16,7 +20,7 @@ def test_event_schema(ev):
     assert set(ev[0]) == {"ts", "user", "agent", "tool", "status", "latency_ms", "bytes_out", "anomaly"}
 
 def test_sorted_by_time(ev):
-    assert all(a["ts"] <= b["ts"] for a, b in zip(ev, ev[1:]))
+    assert all(a["ts"] <= b["ts"] for a, b in pairwise(ev))
 
 def test_pct():
     assert pct([1, 2, 3, 4], 0.5) == 2.5 and pct([], 0.9) == 0

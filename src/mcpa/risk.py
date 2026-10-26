@@ -1,7 +1,9 @@
 """Risk rules + robust anomaly detection (median/MAD z-score). Detectors never read the ground-truth label."""
 from collections import Counter, defaultdict
 from statistics import median
+
 from .events import TOOLS
+
 
 def robust_z(values: list[float], x: float) -> float:
     m = median(values); mad = median([abs(v - m) for v in values]) or 1.0

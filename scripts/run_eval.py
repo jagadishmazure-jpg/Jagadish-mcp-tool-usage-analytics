@@ -1,11 +1,15 @@
 """SYNTHETIC 7-day event log; detection scored against injected ground truth (measured on synthetic data)."""
-import json, pathlib, sys
+import json
+import pathlib
+import sys
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from mcpa.analytics import by, daily_error_rate  # noqa: E402
-from mcpa.events import generate  # noqa: E402
-from mcpa.risk import detect  # noqa: E402
-from mcpa.siem import export_jsonl  # noqa: E402
+from mcpa.analytics import by, daily_error_rate
+from mcpa.events import generate
+from mcpa.risk import detect
+from mcpa.siem import export_jsonl
+
 
 def score(ev, alerts):
     truth = {(e["user"], e["ts"] // 60) for e in ev if e["anomaly"]}
